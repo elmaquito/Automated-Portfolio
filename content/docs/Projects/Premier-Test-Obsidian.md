@@ -12,10 +12,10 @@ Ceci est un test de synchronisation entre Obsidian et Hugo.
 ## Test des fonctionnalités
 
 ### Liens internes
-Voici un lien vers {{< ref "notes/note-technique" >}} qui sera converti automatiquement.
+Voici un exemple de lien interne qui sera converti automatiquement : `[[note-technique]]`
 
 ### Images
-!{{< ref "image-test.png" >}} - Cette image sera copiée automatiquement dans Hugo.
+Exemple d'image : `![[image-test.png]]` - Cette image sera copiée automatiquement dans Hugo.
 
 ### Code
 ```javascript
