@@ -1,4 +1,4 @@
-name: 🚀 Build and Deploy to OVH
+name: 🚀 Build and Deploy to OVH (v2.0 - No Node.js)
 
 on:
   push:
@@ -16,6 +16,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # ✅ This workflow version does NOT use Node.js - Hugo only
     
     steps:
     - name: 📥 Checkout repository
