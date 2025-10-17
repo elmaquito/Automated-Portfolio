@@ -30,13 +30,7 @@ jobs:
         hugo-version: 'latest'
         extended: true
 
-    - name: 📦 Setup Node.js for dependencies
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-
-    - name: 🔧 Setup Go for Hugo modules
+    - name:  Setup Go for Hugo modules
       uses: actions/setup-go@v4
       with:
         go-version: '1.19'
@@ -50,10 +44,6 @@ jobs:
         # hugo mod get -u
         # hugo mod tidy
         echo "Using built-in layouts instead of external themes"
-
-    - name: 🔨 Install dependencies
-      run: |
-        npm ci || npm install
         
     - name: 🏗️ Build Hugo site
       env:
