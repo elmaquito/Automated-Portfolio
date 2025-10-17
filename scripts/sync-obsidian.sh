@@ -50,14 +50,19 @@ echo "🔄 Converting Obsidian files..."
 convert_obsidian_links() {
     local file="$1"
     
-    # Convert [[Page Name]] to {{< ref "page-name" >}}
+    # Convert ![[image.ext]] to proper image syntax first
+    sed -i 's/!\[\[\([^]]*\)\]\]/![Image](\/images\/docs\/\1)/g' "$file"
+    
+    # Convert [[Page Name]] to lowercase with hyphens and proper ref
+    # This handles spaces and special characters
     sed -i 's/\[\[\([^]]*\)\]\]/{{< ref "\L\1" >}}/g' "$file"
     
-    # Convert spaces to hyphens in refs
-    sed -i 's/{{< ref "\([^"]*\) \([^"]*\)" >}}/{{< ref "\1-\2" >}}/g' "$file"
+    # Clean up refs: convert spaces and slashes to hyphens
+    sed -i 's/{{< ref "\([^"]*\)[ \/]\([^"]*\)" >}}/{{< ref "\1-\2" >}}/g' "$file"
+    sed -i 's/{{< ref "\([^"]*\)[ \/]\([^"]*\)[ \/]\([^"]*\)" >}}/{{< ref "\1-\2-\3" >}}/g' "$file"
     
-    # Convert ![[image.png]] to {{< figure src="/images/docs/image.png" >}}
-    sed -i 's/!\[\[\([^]]*\)\]\]/{{< figure src="\/images\/docs\/\1" >}}/g' "$file"
+    # Convert to lowercase and clean special chars in refs
+    sed -i 's/{{< ref "\([^"]*\)" >}}/\L&/g' "$file"
 }
 
 # Copy and convert markdown files
