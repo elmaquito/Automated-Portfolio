@@ -25,7 +25,7 @@ Cette section contient la documentation technique de mes projets, synchronisée 
 ## 🔗 Syntaxe supportée
 
 - `{{< ref "liens-internes" >}}` → Convertis automatiquement en liens Hugo
-- `!{{< ref "images.png" >}}` → Images copiées dans `/static/images/docs/`
+- `![Image](/images/docs/images.png)` → Images copiées dans `/static/images/docs/`
 - Métadonnées YAML → Préservées pour Hugo
 - Tags et dossiers → Structure maintenue
 

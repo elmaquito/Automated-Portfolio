@@ -16,7 +16,7 @@ Le plugin Obsidian Git va :
 
 ### Syntaxe supportée
 - `{{< ref "liens-internes" >}}` → Convertis en liens Hugo
-- `!{{< ref "images.png" >}}` → Images copiées automatiquement  
+- `![Image](/images/docs/images.png)` → Images copiées automatiquement  
 - **Métadonnées YAML** → Préservées pour Hugo
 - **Markdown standard** → Supporté intégralement
 
