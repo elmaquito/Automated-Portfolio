@@ -35,7 +35,10 @@
       {{ if and (eq .Type "docs") (ne .Kind "section") (.Params.tags) }}
         {{ if in .Params.tags "projet" }}
           <div class="col-lg-6 col-xl-4">
-            <div class="card h-100 shadow-sm border-0 project-card">
+            <div class="card h-100 shadow-sm border-0 project-card"
+                 data-tags="{{ delimit .Params.tags "," }}"
+                 data-section="{{ .Section }}"
+                 data-title="{{ .Title | lower }}">
               <div class="card-header bg-gradient-primary text-white">
                 <h5 class="card-title mb-0">
                   <i class="fas fa-code me-2"></i>
@@ -95,7 +98,10 @@
     {{ range $docProjects }}
       {{ if and (ne .Kind "section") (ne .Title "Documentation") }}
         <div class="col-lg-6 col-xl-4">
-          <div class="card h-100 shadow-sm border-0 doc-card">
+          <div class="card h-100 shadow-sm border-0 doc-card" 
+               data-tags="{{ delimit .Params.tags "," }}"
+               data-section="{{ .Section }}"
+               data-title="{{ .Title | lower }}">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">
                 <i class="fas fa-file-alt me-2 text-primary"></i>
@@ -148,6 +154,9 @@
   </div>
   {{ end }}
 </div>
+
+<!-- Script de filtrage -->
+<script src="/js/docs-filter.js"></script>
 
 <style>
 .project-card {
