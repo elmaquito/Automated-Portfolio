@@ -1,0 +1,160 @@
+<div class="contact-form-container mt-4 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-4">
+            <i class="fas fa-paper-plane me-2 text-primary"></i>
+            Envoyez-moi un message
+          </h4>
+          
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">
+                  <i class="fas fa-user me-1"></i>
+                  Nom complet <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">
+                  <i class="fas fa-envelope me-1"></i>
+                  Email <span class="text-danger">*</span>
+                </label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="company" class="form-label">
+                  <i class="fas fa-building me-1"></i>
+                  Entreprise / Organisation
+                </label>
+                <input type="text" class="form-control" id="company" name="company">
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <label for="project-type" class="form-label">
+                  <i class="fas fa-tags me-1"></i>
+                  Type de projet
+                </label>
+                <select class="form-select" id="project-type" name="project-type">
+                  <option value="">Sélectionnez une option</option>
+                  <option value="web-app">Application Web</option>
+                  <option value="api">API / Backend</option>
+                  <option value="automation">Automatisation</option>
+                  <option value="documentation">Documentation</option>
+                  <option value="consulting">Consulting</option>
+                  <option value="formation">Formation</option>
+                  <option value="other">Autre</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="budget" class="form-label">
+                <i class="fas fa-euro-sign me-1"></i>
+                Budget approximatif
+              </label>
+              <select class="form-select" id="budget" name="budget">
+                <option value="">Budget approximatif (optionnel)</option>
+                <option value="1k-5k">1 000€ - 5 000€</option>
+                <option value="5k-15k">5 000€ - 15 000€</option>
+                <option value="15k-30k">15 000€ - 30 000€</option>
+                <option value="30k+">30 000€+</option>
+                <option value="to-discuss">À discuter</option>
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="message" class="form-label">
+                <i class="fas fa-comment-dots me-1"></i>
+                Message <span class="text-danger">*</span>
+              </label>
+              <textarea class="form-control" id="message" name="message" rows="6" 
+                        placeholder="Décrivez votre projet, vos objectifs, votre timeline et toute information pertinente..." 
+                        required></textarea>
+              <div class="form-text">
+                Plus vous serez précis, mieux je pourrai vous aider !
+              </div>
+            </div>
+            
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" value="yes">
+                  <label class="form-check-label" for="newsletter">
+                    <small>M'abonner à la newsletter technique (optionnel)</small>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="col-md-6 text-md-end">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  Envoyer le message
+                </button>
+              </div>
+            </div>
+          </form>
+          
+          <div class="alert alert-info mt-3 mb-0">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Réponse garantie sous 24-48h</strong> pour toute demande sérieuse.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.contact-form-container .card {
+  border: none;
+  border-radius: 15px;
+}
+
+.contact-form-container .form-control,
+.contact-form-container .form-select {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form-container .form-control:focus,
+.contact-form-container .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.1);
+}
+
+.contact-form-container .btn-primary {
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-form-container .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+.contact-form-container .form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.contact-form-container .text-danger {
+  color: #dc3545 !important;
+}
+
+.contact-form-container .alert-info {
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #e3f2fd, #f3e5f5);
+}
+</style>

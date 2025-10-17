@@ -21,6 +21,12 @@ N'hésitez pas à me contacter pour discuter de vos projets, d'opportunités de 
 
 {{< contact-form >}}
 
+### 📮 Contact direct
+Si le formulaire ne fonctionne pas, contactez-moi directement :
+- **Email principal** : contact@martinezismael.fr
+- **Téléphone** : Sur demande via email
+- **LinkedIn** : Message direct recommandé pour un premier contact
+
 ## 🔗 Autres moyens de contact
 
 ### 💼 Professionnel
