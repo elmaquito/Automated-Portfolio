@@ -7,30 +7,19 @@ technologies: ["Obsidian", "Hugo", "GitHub Actions"]
 status: "✅ Terminé"
 ---
 
-
-
 # Mon Premier Article Obsidian
 
 Ceci est un test de synchronisation entre Obsidian et Hugo.
 
-
-
 ## Test des fonctionnalités
 
 ### Liens internes
-
-Voici un lien vers [Note Technique]({{< ref "/docs/notes/note-technique.md" >}}) qui sera converti automatiquement.
-
-
+Voici un lien vers {{< ref "notes/note-technique" >}} qui sera converti automatiquement.
 
 ### Images
-
-![Image](/images/docs/photos-pro.jpg) - Cette image sera copiée automatiquement dans Hugo.
-
-
+![Image](/images/docs/photos pro .jpg) - Cette image sera copiée automatiquement dans Hugo.
 
 ### Code
-
 ```javascript
 // Code JavaScript exemple
 function testObsidianSync() {
@@ -38,19 +27,13 @@ function testObsidianSync() {
 }
 ```
 
-
-
 ### Liste
-
 - ✅ Conversion liens internes
 - ✅ Copie des images
 - ✅ Métadonnées YAML préservées
 - ✅ Formatage Markdown maintenu
 
-
-
 ## Workflow
-
 1. Écrire dans Obsidian
 2. Plugin Git auto-commit
 3. GitHub Action conversion
