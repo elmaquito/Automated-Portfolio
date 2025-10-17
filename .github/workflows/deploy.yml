@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+  repository_dispatch:
+    types: [obsidian-sync-complete]
+
+permissions:
+  contents: read
+  actions: write
 
 jobs:
   build-and-deploy:
@@ -60,7 +66,20 @@ jobs:
       run: |
         node scripts/generate-search-index.js || echo "Search index generation skipped"
 
-    - name: 🚀 Deploy to OVH via SFTP
+    - name: � Check FTP credentials
+      if: github.ref == 'refs/heads/main'
+      run: |
+        if [ -z "$FTP_PASSWORD" ]; then
+          echo "❌ FTP_PASSWORD secret is not configured!"
+          echo "💡 Please configure it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
+          echo "🔑 Secret name: FTP_PASSWORD"
+          echo "🔑 Secret value: Pzz8F2SsJA6PcDYUa5ctuzjphstJ"
+          exit 1
+        fi
+      env:
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+    - name: �🚀 Deploy to OVH via SFTP
       if: github.ref == 'refs/heads/main'
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -69,10 +88,13 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./public/
         server-dir: ./www/
+        port: 21
+        protocol: ftp
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/.DS_Store
 
     - name: 🔔 Notify deployment status
       if: always()

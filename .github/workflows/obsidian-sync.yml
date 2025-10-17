@@ -49,8 +49,7 @@ jobs:
           echo "No changes to commit"
         fi
 
-    - name: 🚀 Trigger main deployment
-      uses: peter-evans/repository-dispatch@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        event-type: obsidian-sync-complete
+    - name: ✅ Sync completed
+      run: |
+        echo "✅ Obsidian sync completed successfully"
+        echo "🚀 Main deployment workflow will be triggered by the commit"

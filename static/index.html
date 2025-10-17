@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismael Martinez - Portfolio & Documentation</title>
+    <meta name="description" content="Portfolio professionnel et documentation technique d'Ismael Martinez - Développeur Full Stack">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            margin-top: 5vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        .status {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .status h2 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .tech-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f1f3f4;
+            border-radius: 10px;
+        }
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        .progress {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 1rem 0;
+        }
+        .progress-bar {
+            background: #4caf50;
+            height: 100%;
+            border-radius: 10px;
+            width: 95%;
+            transition: width 0.3s ease;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">👋</span> Ismael Martinez</h1>
+        
+        <div class="status">
+            <h2><span class="emoji">🚀</span> Portfolio Automatisé en Déploiement</h2>
+            <p>Le site est actuellement en cours de déploiement automatique via GitHub Actions.</p>
+            
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p><strong>Progression:</strong> 95% - Configuration des secrets en cours</p>
+        </div>
+
+        <h2><span class="emoji">💼</span> Développeur Full Stack</h2>
+        <p>Passionné par les technologies web modernes et l'automatisation des processus de développement.</p>
+
+        <h3><span class="emoji">🔧</span> Technologies</h3>
+        <div class="tech-list">
+            <div class="tech-item">
+                <strong>Frontend</strong><br>
+                React, Vue.js, TypeScript
+            </div>
+            <div class="tech-item">
+                <strong>Backend</strong><br>
+                Node.js, Python, PHP
+            </div>
+            <div class="tech-item">
+                <strong>DevOps</strong><br>
+                Docker, GitHub Actions
+            </div>
+            <div class="tech-item">
+                <strong>Outils</strong><br>
+                Hugo, Obsidian, Git
+            </div>
+        </div>
+
+        <h3><span class="emoji">⚡</span> Fonctionnalités du Portfolio</h3>
+        <ul>
+            <li>📝 <strong>Sync Obsidian automatique</strong> - Documentation synchronisée</li>
+            <li>🔄 <strong>CI/CD complet</strong> - Déploiement automatique</li>
+            <li>📚 <strong>API Documentation</strong> - Génération Python/JS</li>
+            <li>🔍 <strong>Recherche intégrée</strong> - Recherche full-text</li>
+            <li>📊 <strong>Performance monitoring</strong> - Lighthouse CI</li>
+        </ul>
+
+        <div class="contact">
+            <h3><span class="emoji">📞</span> Contact</h3>
+            <p>En attendant le déploiement complet, vous pouvez me contacter :</p>
+            <p>
+                <strong>GitHub:</strong> <a href="https://github.com/elmaquito">@elmaquito</a><br>
+                <strong>Email:</strong> contact@martinezismael.fr
+            </p>
+        </div>
+
+        <footer>
+            <p><span class="emoji">🏗️</span> Site généré automatiquement avec Hugo + GitHub Actions</p>
+            <p>Déploiement en cours... Merci de votre patience !</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulation du chargement
+        let progress = 95;
+        const progressBar = document.querySelector('.progress-bar');
+        
+        setInterval(() => {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+            }
+        }, 2000);
+        
+        // Auto-refresh après 2 minutes
+        setTimeout(() => {
+            location.reload();
+        }, 120000);
+    </script>
+</body>
+</html>
