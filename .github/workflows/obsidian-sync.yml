@@ -6,6 +6,9 @@ on:
       - 'docs-source/**'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync-obsidian:
     runs-on: ubuntu-latest
