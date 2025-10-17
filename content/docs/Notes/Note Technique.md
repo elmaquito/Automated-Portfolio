@@ -11,8 +11,7 @@ Ceci est une note technique de test pour vérifier que les liens internes Obsidi
 
 ## Objectif
 
-Cette page sert de destination pour tester les conversions de liens depuis :
-- `{{< ref "notes/note-technique" >}}` → `{{< ref "notes-note-technique" >}}`
+Cette page sert de destination pour tester les conversions de liens depuis le Premier Test Obsidian.
 
 ## Contenu
 
