@@ -90,7 +90,8 @@ jobs:
 # Conversion Obsidian → Hugo
 
 convert_obsidian_links() {
-    sed -i 's/\[\[\([^]]*\)\]\]/{{&lt; ref "\L\1" &gt;}}/g' "$1"
+    # Conversion des liens [[internes]] vers Hugo ref shortcode
+    sed -i 's/\[\[\([^]]*\)\]\]/HUGO_REF_LINK/g' "$1"
 }
 
 find docs-source -name "*.md" | while read file; do
@@ -138,7 +139,7 @@ done
 ### Challenge 1: Conversion liens Obsidian
 **Problème** : Les liens `[[internes]]` d'Obsidian ne sont pas compatibles Hugo
 
-**Solution** : Script de conversion avec regex pour transformer en `{{&lt; ref &gt;}}`
+**Solution** : Script de conversion avec regex pour transformer les liens Obsidian en shortcodes Hugo
 
 ### Challenge 2: Gestion images
 **Problème** : Chemin d'images différent entre Obsidian et Hugo
