@@ -1,0 +1,8 @@
+# Hugo module configuration for Docsy theme
+[[imports]]
+  path = "github.com/google/docsy"
+  disable = false
+
+[[imports]]
+  path = "github.com/google/docsy/dependencies"
+  disable = false
