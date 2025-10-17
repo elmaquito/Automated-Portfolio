@@ -20,12 +20,7 @@ jobs:
         fetch-depth: 0
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: 📦 Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-
-    - name: 🔄 Convert Obsidian to Hugo
+    - name:  Convert Obsidian to Hugo
       run: |
         chmod +x scripts/sync-obsidian.sh
         bash scripts/sync-obsidian.sh
