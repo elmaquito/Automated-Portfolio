@@ -15,7 +15,7 @@ Ceci est un test de synchronisation entre Obsidian et Hugo.
 Voici un lien vers [[Notes/Note Technique]] qui sera converti automatiquement.
 
 ### Images
-![[image-test.png]] - Cette image sera copiée automatiquement dans Hugo.
+![[photos pro .jpg]] - Cette image sera copiée automatiquement dans Hugo.
 
 ### Code
 ```javascript
