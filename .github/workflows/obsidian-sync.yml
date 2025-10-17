@@ -1,0 +1,56 @@
+name: 📝 Sync Obsidian Documentation
+
+on:
+  push:
+    paths:
+      - 'docs-source/**'
+  workflow_dispatch:
+
+jobs:
+  sync-obsidian:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: 🔄 Convert Obsidian to Hugo
+      run: |
+        chmod +x scripts/sync-obsidian.sh
+        bash scripts/sync-obsidian.sh
+        
+    - name: 🖼️ Process images and attachments
+      run: |
+        # Copy and optimize images from Obsidian vault
+        if [ -d "docs-source/attachments" ]; then
+          mkdir -p static/images/docs
+          cp -r docs-source/attachments/* static/images/docs/ || true
+        fi
+        
+    - name: 📝 Commit converted content
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        git add content/docs/ static/images/docs/
+        
+        if ! git diff --cached --exit-code; then
+          git commit -m "📝 Auto-sync Obsidian documentation $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+
+    - name: 🚀 Trigger main deployment
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        event-type: obsidian-sync-complete

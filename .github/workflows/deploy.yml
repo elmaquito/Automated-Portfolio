@@ -1,0 +1,99 @@
+name: 🚀 Build and Deploy to OVH
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: true
+
+    - name: ⚙️ Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+        extended: true
+
+    - name: 📦 Setup Node.js for dependencies
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 🔧 Setup Go for Hugo modules
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.19'
+
+    - name: 📚 Initialize Hugo modules
+      run: |
+        hugo mod init github.com/elmaquito/Automated-Portfolio
+        hugo mod get -u
+        hugo mod tidy
+
+    - name: 🔨 Install dependencies
+      run: |
+        npm ci || npm install
+        
+    - name: 🏗️ Build Hugo site
+      env:
+        HUGO_ENVIRONMENT: production
+      run: |
+        hugo --minify --enableGitInfo
+        
+    - name: 🔍 Run link checker
+      run: |
+        npm install -g linkinator
+        linkinator public --recurse --skip "^mailto:" --verbosity error
+
+    - name: 📊 Generate search index
+      run: |
+        node scripts/generate-search-index.js || echo "Search index generation skipped"
+
+    - name: 🚀 Deploy to OVH via SFTP
+      if: github.ref == 'refs/heads/main'
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.cluster021.hosting.ovh.net
+        username: martisx
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./public/
+        server-dir: ./www/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+
+    - name: 🔔 Notify deployment status
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "✅ Deployment successful to https://www.martinezismael.fr"
+        else
+          echo "❌ Deployment failed"
+          exit 1
+        fi
+
+  lighthouse-audit:
+    needs: build-and-deploy
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔍 Lighthouse CI
+      uses: treosh/lighthouse-ci-action@v9
+      with:
+        urls: |
+          https://www.martinezismael.fr
+        configPath: '.lighthouserc.json'
+        uploadArtifacts: true
