@@ -1,0 +1,143 @@
+baseURL = "https://www.martinezismael.fr"
+languageCode = "fr"
+title = "Ismael Martinez - Portfolio & Documentation"
+theme = "docsy"
+
+# Hugo configuration
+enableGitInfo = true
+enableRobotsTXT = true
+enableEmoji = true
+
+# Content and publishing
+contentDir = "content"
+dataDir = "data"
+layoutsDir = "layouts"
+publishDir = "public"
+
+# Build performance
+timeout = "180s"
+
+[build]
+  writeStats = true
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+
+# Language settings
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+
+[languages.fr]
+  title = "Ismael Martinez - Portfolio & Documentation"
+  description = "Portfolio professionnel et documentation technique d'Ismael Martinez - Développeur Full Stack"
+  languageName = "Français"
+  weight = 1
+
+# Menu configuration
+[[menus.main]]
+  name = "Accueil"
+  url = "/"
+  weight = 10
+
+[[menus.main]]
+  name = "À propos"
+  url = "/about/"
+  weight = 20
+
+[[menus.main]]
+  name = "Projets"
+  url = "/projects/"
+  weight = 30
+
+[[menus.main]]
+  name = "Documentation"
+  url = "/docs/"
+  weight = 40
+
+[[menus.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 50
+
+[[menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 60
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    tabWidth = 2
+
+# Related content
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+  [[related.indices]]
+    name = "keywords"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# Privacy and services
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+# Site parameters
+[params]
+  # SEO
+  description = "Portfolio professionnel et documentation technique d'Ismael Martinez"
+  author = "Ismael Martinez"
+  keywords = ["développement web", "portfolio", "documentation", "full stack"]
+  
+  # Docsy theme specific
+  github_repo = "https://github.com/elmaquito/Automated-Portfolio"
+  github_branch = "main"
+  
+  # Features
+  rss_sections = ["blog", "docs"]
+  edit_page = true
+  search_enabled = true
+  prism_syntax_highlighting = true
+  
+  # UI
+  sidebar_menu_compact = true
+  sidebar_menu_foldable = true
+  
+  # Footer
+  copyright = "Ismael Martinez"
+  privacy_policy = "/privacy/"
+  
+  # Analytics (Plausible placeholder)
+  # plausible_domain = "martinezismael.fr"
+  
+  # Contact form (Formspree placeholder)
+  # formspree_endpoint = "YOUR_FORMSPREE_ID"
+
+# Theme configuration
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.110.0"
