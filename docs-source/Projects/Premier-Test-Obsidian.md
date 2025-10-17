@@ -1,8 +1,10 @@
 ---
 title: "Mon Premier Article Obsidian"
 description: "Test de synchronisation Obsidian vers Hugo"
-tags: ["test", "obsidian", "hugo"]
+tags: ["test", "obsidian", "hugo", "projet"]
 date: 2025-10-17
+technologies: ["Obsidian", "Hugo", "GitHub Actions"]
+status: "✅ Terminé"
 ---
 
 # Mon Premier Article Obsidian

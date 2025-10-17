@@ -1,0 +1,186 @@
+{{ define "main" }}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">
+          <i class="fas fa-rocket me-3"></i>{{ .Title }}
+        </h1>
+        <p class="lead text-muted">{{ .Description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenu personnalisé de la page -->
+  <div class="content mb-5">
+    {{ .Content }}
+  </div>
+
+  <!-- Section projets automatiques depuis docs-source -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="h3 fw-bold mb-4">
+        <i class="fas fa-folder-open me-2 text-success"></i>
+        Projets Documentation
+      </h2>
+      <p class="text-muted mb-4">
+        Projets documentés automatiquement depuis Obsidian et synchronisés en temps réel.
+      </p>
+    </div>
+  </div>
+
+  <!-- Grille des projets docs -->
+  <div class="row g-4 mb-5">
+    {{ range where .Site.Pages "Section" "docs" }}
+      {{ if and (eq .Type "docs") (ne .Kind "section") (.Params.tags) }}
+        {{ if in .Params.tags "projet" }}
+          <div class="col-lg-6 col-xl-4">
+            <div class="card h-100 shadow-sm border-0 project-card">
+              <div class="card-header bg-gradient-primary text-white">
+                <h5 class="card-title mb-0">
+                  <i class="fas fa-code me-2"></i>
+                  {{ .Title }}
+                </h5>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <p class="card-text text-muted mb-3">{{ .Description }}</p>
+                
+                <!-- Tags -->
+                {{ if .Params.tags }}
+                <div class="mb-3">
+                  {{ range .Params.tags }}
+                    <span class="badge bg-light text-dark me-1 mb-1">
+                      <i class="fas fa-tag me-1"></i>{{ . }}
+                    </span>
+                  {{ end }}
+                </div>
+                {{ end }}
+                
+                <!-- Date -->
+                {{ if .Date }}
+                <small class="text-muted mb-3">
+                  <i class="fas fa-calendar me-1"></i>
+                  {{ .Date.Format "2 January 2006" }}
+                </small>
+                {{ end }}
+                
+                <!-- Bouton vers le projet -->
+                <div class="mt-auto">
+                  <a href="{{ .Permalink }}" class="btn btn-primary">
+                    <i class="fas fa-eye me-2"></i>
+                    Voir le projet
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <!-- Tous les projets docs (fallback si pas de tag "projet") -->
+  {{ $docProjects := where .Site.Pages "Section" "docs" }}
+  {{ if $docProjects }}
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="h3 fw-bold mb-4">
+        <i class="fas fa-book me-2 text-info"></i>
+        Tous les Articles Documentation
+      </h2>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    {{ range $docProjects }}
+      {{ if and (ne .Kind "section") (ne .Title "Documentation") }}
+        <div class="col-lg-6 col-xl-4">
+          <div class="card h-100 shadow-sm border-0 doc-card">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">
+                <i class="fas fa-file-alt me-2 text-primary"></i>
+                {{ .Title }}
+              </h5>
+              
+              <p class="card-text text-muted mb-3">
+                {{ if .Description }}
+                  {{ .Description }}
+                {{ else }}
+                  {{ .Summary | truncate 120 }}
+                {{ end }}
+              </p>
+              
+              <!-- Tags -->
+              {{ if .Params.tags }}
+              <div class="mb-3">
+                {{ range .Params.tags }}
+                  <span class="badge bg-secondary me-1 mb-1">{{ . }}</span>
+                {{ end }}
+              </div>
+              {{ end }}
+              
+              <!-- Métainfo -->
+              <div class="small text-muted mb-3">
+                {{ if .Date }}
+                  <i class="fas fa-calendar me-1"></i>
+                  {{ .Date.Format "2 Jan 2006" }}
+                {{ end }}
+                {{ if .Section }}
+                  <span class="ms-2">
+                    <i class="fas fa-folder me-1"></i>
+                    {{ title .Section }}
+                  </span>
+                {{ end }}
+              </div>
+              
+              <!-- Bouton -->
+              <div class="mt-auto">
+                <a href="{{ .Permalink }}" class="btn btn-outline-primary btn-sm">
+                  <i class="fas fa-arrow-right me-2"></i>
+                  Lire l'article
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+
+<style>
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.doc-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+}
+
+.doc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-header {
+  border-bottom: none;
+}
+
+.badge {
+  font-size: 0.75rem;
+}
+</style>
+{{ end }}
