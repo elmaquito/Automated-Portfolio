@@ -1,0 +1,102 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-3 mb-4">
+            <i class="fas fa-hand-wave"></i> 
+            Ismael Martinez
+        </h1>
+        <p class="lead mb-5">Développeur Full Stack passionné par l'automatisation et les technologies modernes</p>
+        <a href="/about/" class="btn btn-light btn-lg me-3">
+            <i class="fas fa-user"></i> En savoir plus
+        </a>
+        <a href="/contact/" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-envelope"></i> Contact
+        </a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="content-section">
+    <div class="container">
+        {{ .Content }}
+        
+        <!-- Quick Links -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Projets</h5>
+                        <p class="card-text">Découvrez mes réalisations techniques et projets open source.</p>
+                        <a href="/projects/" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Voir les projets
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-book fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Documentation</h5>
+                        <p class="card-text">Documentation technique complète synchronisée depuis Obsidian.</p>
+                        <a href="/docs/" class="btn btn-success">
+                            <i class="fas fa-arrow-right"></i> Lire la doc
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-blog fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Blog</h5>
+                        <p class="card-text">Articles techniques sur le développement et l'automatisation.</p>
+                        <a href="/blog/" class="btn btn-info">
+                            <i class="fas fa-arrow-right"></i> Lire le blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technologies Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="text-center mb-4">
+                    <i class="fas fa-tools"></i> Technologies & Outils
+                </h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="highlight text-center">
+                            <h6><i class="fab fa-js-square"></i> Frontend</h6>
+                            <small>React, Vue.js, TypeScript</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="highlight text-center">
+                            <h6><i class="fas fa-server"></i> Backend</h6>
+                            <small>Node.js, Python, PHP</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="highlight text-center">
+                            <h6><i class="fas fa-database"></i> Données</h6>
+                            <small>PostgreSQL, MongoDB</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="highlight text-center">
+                            <h6><i class="fas fa-cloud"></i> DevOps</h6>
+                            <small>Docker, GitHub Actions</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

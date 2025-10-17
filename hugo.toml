@@ -1,7 +1,7 @@
 baseURL = "https://www.martinezismael.fr"
 languageCode = "fr"
 title = "Ismael Martinez - Portfolio & Documentation"
-theme = "docsy"
+# theme = "docsy"  # Temporarily disabled due to template conflicts
 
 # Hugo configuration
 enableGitInfo = true
@@ -100,7 +100,7 @@ defaultContentLanguageInSubdir = false
   [privacy.googleAnalytics]
     anonymizeIP = true
     respectDoNotTrack = true
-  [privacy.twitter]
+  [privacy.x]
     enableDNT = true
   [privacy.youtube]
     privacyEnhanced = true
@@ -136,8 +136,15 @@ defaultContentLanguageInSubdir = false
   # Contact form (Formspree placeholder)
   # formspree_endpoint = "YOUR_FORMSPREE_ID"
 
-# Theme configuration
+# Module configuration
 [module]
   [module.hugoVersion]
     extended = true
     min = "0.110.0"
+  # Docsy temporarily disabled due to template conflicts
+  # [[module.imports]]
+  #   path = "github.com/google/docsy"
+  #   disable = false
+  # [[module.imports]]
+  #   path = "github.com/google/docsy/dependencies"
+  #   disable = false

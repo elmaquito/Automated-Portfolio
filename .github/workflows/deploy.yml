@@ -41,11 +41,15 @@ jobs:
       with:
         go-version: '1.19'
 
-    - name: 📚 Initialize Hugo modules
+    - name: 📚 Initialize Hugo modules (if needed)
       run: |
-        hugo mod init github.com/elmaquito/Automated-Portfolio
-        hugo mod get -u
-        hugo mod tidy
+        if [ ! -f "go.mod" ]; then
+          hugo mod init github.com/elmaquito/Automated-Portfolio
+        fi
+        # Skip module update to avoid template conflicts
+        # hugo mod get -u
+        # hugo mod tidy
+        echo "Using built-in layouts instead of external themes"
 
     - name: 🔨 Install dependencies
       run: |

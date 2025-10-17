@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 mb-4">{{ .Title }}</h1>
+        <p class="lead">{{ .Params.description | default .Site.Params.description }}</p>
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                {{ .Content }}
+                
+                {{ if .Pages }}
+                <div class="row mt-5">
+                    {{ range .Pages }}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-file-alt"></i> 
+                                    <a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a>
+                                </h5>
+                                <p class="card-text">{{ .Summary | truncate 120 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        {{ if .Date }}<i class="fas fa-calendar"></i> {{ .Date.Format "2 Jan 2006" }}{{ end }}
+                                    </small>
+                                    {{ if .Params.tags }}
+                                    <div>
+                                        {{ range first 2 .Params.tags }}
+                                        <span class="badge bg-primary">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
