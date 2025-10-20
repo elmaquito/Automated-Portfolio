@@ -46,11 +46,127 @@ jobs:
         # hugo mod tidy
         echo "Using built-in layouts instead of external themes"
         
+    - name: ✅ Validate Markdown files
+      run: |
+        echo "🔍 Validating Markdown files for common issues..."
+        
+        # Check for skip validation in commit message
+        if echo "${{ github.event.head_commit.message }}" | grep -qi "\[skip-validation\]\|\[skip-md\]"; then
+          echo "⏭️ Skipping Markdown validation due to commit message flag"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+          exit 0
+        fi
+        
+        # Check for Git merge conflict markers
+        echo "📝 Checking for merge conflicts..."
+        if grep -r "<<<<<<< HEAD\|=======\|>>>>>>> " content/ 2>/dev/null; then
+          echo "❌ Merge conflict markers found in content files!"
+          echo "Please resolve all merge conflicts before deploying."
+          echo "💡 To skip this check, add [skip-validation] to your commit message"
+          exit 1
+        fi
+        echo "✅ No merge conflicts found"
+        
+        # Check for valid YAML frontmatter
+        echo "📋 Validating YAML frontmatter..."
+        error_count=0
+        for file in $(find content/ -name "*.md" -type f); do
+          echo "Checking: $file"
+          
+          # Check if file starts with ---
+          if ! head -n 1 "$file" | grep -q "^---$"; then
+            echo "❌ Missing frontmatter in: $file"
+            error_count=$((error_count + 1))
+            continue
+          fi
+          
+          # Extract frontmatter (between first two ---)
+          frontmatter=$(awk '/^---$/{if(++c==2) exit} c==1' "$file")
+          
+          # Check if frontmatter is empty
+          if [ -z "$frontmatter" ]; then
+            echo "❌ Empty frontmatter in: $file"
+            error_count=$((error_count + 1))
+            continue
+          fi
+          
+          # Basic YAML validation (check for title)
+          if ! echo "$frontmatter" | grep -q "title:"; then
+            echo "❌ Missing title in frontmatter: $file"
+            error_count=$((error_count + 1))
+            continue
+          fi
+          
+          echo "✅ Valid: $file"
+        done
+        
+        if [ $error_count -gt 0 ]; then
+          echo "❌ Found $error_count file(s) with issues"
+          echo "💡 To skip this check, add [skip-validation] to your commit message"
+          exit 1
+        fi
+        echo "✅ All Markdown files have valid frontmatter"
+        
+        # Check for broken internal references
+        echo "🔗 Checking for potential broken refs..."
+        broken_refs=0
+        if grep -r "ref \"[^/]" content/ 2>/dev/null; then
+          echo "⚠️ Found relative refs - consider using absolute paths like '/docs/...' for reliability"
+          broken_refs=1
+        fi
+        
+        # Check for common Hugo ref patterns that might break
+        if grep -r "{{< ref \"[^\"]*\" >}}" content/ | grep -v "/docs/" 2>/dev/null; then
+          echo "⚠️ Found refs without absolute paths - these might cause REF_NOT_FOUND errors"
+          broken_refs=1
+        fi
+        
+        if [ $broken_refs -eq 1 ]; then
+          echo "💡 Consider updating refs to use absolute paths or add [skip-validation] to commit message if intentional"
+        fi
+        
+        echo "✅ Markdown validation completed successfully"
+
     - name: 🏗️ Build Hugo site
       env:
         HUGO_ENVIRONMENT: production
       run: |
-        hugo --minify --enableGitInfo
+        echo "🚀 Building Hugo site with error checking..."
+        
+        # Try Hugo build and capture output
+        if ! hugo --minify --enableGitInfo 2>&1 | tee hugo_build.log; then
+          echo "❌ Hugo build failed!"
+          echo "📋 Build output:"
+          cat hugo_build.log
+          
+          # Check for specific error types
+          if grep -q "REF_NOT_FOUND" hugo_build.log; then
+            echo ""
+            echo "🔗 REF_NOT_FOUND errors detected:"
+            grep "REF_NOT_FOUND" hugo_build.log
+            echo ""
+            echo "💡 Solutions:"
+            echo "1. Check that referenced files exist in content/"
+            echo "2. Use absolute paths: {{< ref \"/docs/path/file.md\" >}}"
+            echo "3. Add [skip-validation] to commit message to skip checks"
+          fi
+          
+          if grep -q "failed to unmarshal YAML" hugo_build.log; then
+            echo ""
+            echo "📋 YAML frontmatter errors detected:"
+            grep "failed to unmarshal YAML" hugo_build.log
+            echo ""
+            echo "💡 Check for:"
+            echo "1. Proper --- delimiters"
+            echo "2. Valid YAML syntax"
+            echo "3. No merge conflict markers"
+          fi
+          
+          exit 1
+        fi
+        
+        echo "✅ Hugo build successful!"
+        rm -f hugo_build.log
         
     - name: 🔍 Basic site validation
       run: |
