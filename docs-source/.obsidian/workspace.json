@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Probabilites.md",
+                "file": "Notes/Statistiques.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Probabilites"
+              "title": "Statistiques"
             }
           }
         ],
@@ -197,6 +197,7 @@
   },
   "active": "13a2dedd1fcd52ce",
   "lastOpenFiles": [
+    "Notes/Probabilites.md",
     "Notes/Statistiques.md",
     "Guides/Guide-Utilisation-Obsidian.md",
     "attachments/photos pro .jpg",
@@ -204,7 +205,6 @@
     "attachments/Pasted image 20251013141342.png",
     "attachments/Pasted image 20251013141254.png",
     "attachments/15_union_intersection_difference_symmetric-347325689.png",
-    "Notes/Probabilites.md",
     "Notes/Note Technique.md",
     "Projects/API-Documentation-Generator.md",
     "Projects/Premier-Test-Obsidian.md",

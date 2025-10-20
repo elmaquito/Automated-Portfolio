@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bases IA : Statistiques | Ismael Martinez - Portfolio &amp; Documentation</title>
+    <meta name="description" content="Note de cours concernant les statistiques appliqués à l&#39;IA.">
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        .content-section {
+            padding: 3rem 0;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .highlight {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="http://localhost:1313/">
+                <i class="fas fa-code"></i> Ismael Martinez - Portfolio &amp; Documentation
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about/">À propos</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/projects/">Projets</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/docs/">Documentation</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main>
+        
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 mb-4">Bases IA : Statistiques</h1>
+        <p class="lead">Note de cours concernant les statistiques appliqués à l&#39;IA.</p>
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <article>
+                    <h1 id="statistiques-et-probabilités-pour-lintelligence-artificielle">Statistiques et Probabilités pour l&rsquo;Intelligence Artificielle</h1>
+<hr>
+<p>Intervenant : Nicolas Metivier</p>
+<p>Contexte:
+double activité
+supervision, automatisation et IA.</p>
+<p>En mathématique, Statistiques et Probabilités:</p>
+<h3 id="pourquoi-les-statistiques-au-coeur-de-lia">Pourquoi les statistiques au coeur de l&rsquo;IA</h3>
+<p>L&rsquo;IA repose sur des données
+les stats permettent de resumer, interpreter et fiabiliser, les proba permettent de modeliser l&rsquo;incertitude et les aleas et donc de prendre des decisions en consequence.
+Exemples:
+- Machine Learning : algorithmes qui apprennent des données (Modèles probabilistes, régressions, arbres de décision))
+- Deep Learning :  reseaux de neurones profonds (apprentissage par couches successives, optimisation de fonctions couts))
+- NLP : Natural Language Processing(analyse et génération de texte (modèles de langage, analyse de sentiments, traduction automatique))
+- Vision par ordinateur : reconnaissance d&rsquo;images, de visages, de texte</p>
+<h3 id="définitions-de-bases">Définitions de bases</h3>
+<p>Population : ensemble complet d&rsquo;individus ou d&rsquo;objets d&rsquo;intérêt
+Echantillon : sous-ensemble représentatif de la population
+Variable : caractéristique mesurée ou observée (quantitative ou qualitative)
+Distribution : répartition des valeurs d&rsquo;une variable dans une population ou un échantillon</p>
+<h3 id="types-de-variables">types de variables:</h3>
+<ul>
+<li>Quantitative (discrète, continue) : valeurs numériques (ex : âge, taille, poids)</li>
+<li>Qualitative (nominale, ordinale) : catégories ou labels (ex : sexe, couleur, niveau d&rsquo;éducation)</li>
+</ul>
+<h3 id="variable-aléatoire">Variable aléatoire:</h3>
+<ul>
+<li>Discrète : prend des valeurs spécifiques (ex : nombre d&rsquo;enfants)</li>
+<li>Continue : prend des valeurs dans un intervalle (ex : taille, poids)</li>
+</ul>
+<h4 id="notations">Notations:</h4>
+<ul>
+<li>Moyenne : μ (population), x̄ (échantillon)</li>
+<li>Variance : σ² (population), s² (échantillon)</li>
+<li>Ecart-type : σ (population), s (échantillon)</li>
+<li>Probabilité : P(A) pour un événement A</li>
+<li>Espérance : E(X) pour une variable aléatoire X</li>
+</ul>
+<h4 id="exemple-">exemple :</h4>
+<ul>
+<li>Lancer un dé : espace échantillonal {1,2,3,4,5,6}, événement A = obtenir un nombre pair {2,4,6}, P(A) = 3/6 = 0.5</li>
+</ul>
+<h3 id="visualiser-une-distribution-">Visualiser une distribution :</h3>
+<ul>
+<li>Histogramme : pour les variables quantitatives</li>
+<li>Diagramme en barres : pour les variables qualitatives</li>
+<li>Boîte à moustaches : pour visualiser la dispersion et les outliers</li>
+</ul>
+<p>La moyenne n&rsquo;a de sens que si on connait la distribution des données.</p>
+<h2 id="mesurer-et-interpréter">Mesurer et interpréter</h2>
+<h3 id="statistiques-descriptives-">statistiques descriptives :</h3>
+<ul>
+<li>Tendance centrale : Moyenne, médiane, mode</li>
+<li>Variance, écart-type</li>
+<li>Quartiles, percentiles</li>
+<li>forme de la distribution : asymétrie, kurtosis</li>
+</ul>
+<h4 id="quest-ce-que-la-statistique-descriptive">Qu&rsquo;est ce que la statistique descriptive?</h4>
+<ul>
+<li>Résumer et décrire les caractéristiques principales d&rsquo;un ensemble de données</li>
+<li>Utiliser des mesures numériques et des représentations graphiques</li>
+<li>Aider à comprendre la distribution, la tendance centrale et la dispersion des données</li>
+</ul>
+<h4 id="mesurer-les-tendances-centrales">Mesurer les tendances centrales:</h4>
+<ul>
+<li>Moyenne : somme des valeurs divisée par le nombre de valeurs</li>
+<li>Médiane : valeur centrale lorsque les données sont ordonnées</li>
+<li>Mode : valeur la plus fréquente dans l&rsquo;échantillon
+Exemple :</li>
+<li>Données : [3, 1, 4, 4, 5, 2, 6]</li>
+<li>Moyenne : (3+1+4+4+5+2+6)/7 = 3.57</li>
+<li>Médiane : 4 (données ordonnées : [1,2,3,4,4,5,6])</li>
+<li>Mode : 4 (apparaît deux fois)
+Observation : Prendre un exemple plus simple pour illustrer</li>
+</ul>
+<h4 id="mesurer-la-dispersion">Mesurer la dispersion:</h4>
+<ul>
+<li>Variance : moyenne des carrés des écarts par rapport à la moyenne ( σ² = Σ(xi - μ)² / N )</li>
+<li>Ecart-type : racine carrée de la variance</li>
+<li>Étendue : différence entre la valeur maximale et minimale</li>
+<li>Quartiles : divisent les données en quatre parties égales
+Exemple vulgarisé :</li>
+<li>Données : [3, 1, 4, 4, 5, 2, 6]</li>
+<li>Moyenne : 3.57</li>
+<li>Variance : ((3-3.57)² + (1-3.57)² + (4-3.57)² + (4-3.57)² + (5-3.57)² + (2-3.57)² + (6-3.57)²) / 7 = 2.29</li>
+<li>Ecart-type : √2.29 = 1.51</li>
+<li>Étendue : 6 - 1 = 5</li>
+</ul>
+<p>Asymétrie et aplatissement:</p>
+<ul>
+<li>Asymétrie : mesure de la symétrie de la distribution (positive, négative, nulle)</li>
+<li>Kurtosis : mesure de la &ldquo;pointedness&rdquo; de la distribution (leptokurtique, platykurtique, mésokurtique)</li>
+</ul>
+<p>Exemple :</p>
+<ul>
+<li>Données : [1, 2, 2, 3, 4, 5, 6, 7, 8, 9]</li>
+<li>Asymétrie : proche de 0 (distribution symétrique)</li>
+<li>Kurtosis : proche de 3 (distribution normale)</li>
+</ul>
+<p>Représentation graphique :</p>
+<ul>
+<li>Histogramme : pour visualiser la distribution des données quantitatives
+ex : Âge des individus dans un échantillon</li>
+<li>Diagramme en barres : pour les données qualitatives
+ex : Couleur préférée dans un échantillon</li>
+<li>Boîte à moustaches : pour visualiser la dispersion, la médiane et les outliers sur une dimension (X)
+ex : Salaire des employés dans une entreprise</li>
+<li>Nuage de points : pour visualiser la relation entre deux variables quantitatives (X et Y))
+ex : Taille vs Poids</li>
+</ul>
+<h3 id="les-quantiles">Les quantiles</h3>
+<ul>
+<li>Divisent les données en parties égales</li>
+<li>Quartiles : Q1 (25%), Q2 (médiane, 50%), Q3 (75%)</li>
+<li>Percentiles : divisent les données en 100 parties égales</li>
+<li>déciles : divisent les données en 10 parties égales</li>
+<li>Centiles : divisent les données en 100 parties égales</li>
+</ul>
+<h4 id="les-valeurs-abéerrantes-outliers-">Les valeurs abéerrantes (outliers) :</h4>
+<ul>
+<li>Points de données qui s&rsquo;écartent significativement de la tendance générale</li>
+<li>Peuvent influencer la moyenne et la variance</li>
+<li>Identifier avec des boîtes à moustaches ou des z-scoresrrantes (outliers) :</li>
+<li>Points de données qui s&rsquo;écartent significativement des autres</li>
+<li>Peuvent influencer la moyenne et la variance</li>
+<li>Identifier avec des boîtes à moustaches ou des z-scores</li>
+</ul>
+<p>zscore = (xi - μ) / σ</p>
+<ul>
+<li>Traiter en les supprimant, les transformant ou les analysant séparément</li>
+<li>Exemple : Données : [3, 1, 4, 4, 5, 2, 100] (100 est un outlier)</li>
+</ul>
+<h3 id="covariance-et-corrélation">Covariance et corrélation:</h3>
+<ul>
+<li>Covariance : mesure de la façon dont deux variables varient ensemble
+Cov(X,Y) = Σ((xi - μx)(yi - μy)) / N</li>
+<li>Corrélation : mesure normalisée de la relation linéaire entre deux variables (entre -1 et 1)
+Corr(X,Y) = Cov(X,Y) / (σx * σy)</li>
+<li>Exemple :
+Données X : [1, 2, 3, 4, 5]
+Données Y : [2, 4, 6, 8, 10]
+Cov(X,Y) = 8
+Corr(X,Y) = 1 (relation linéaire parfaite)</li>
+</ul>
+<h3 id="matrice-de-corrélation">matrice de corrélation:</h3>
+<ul>
+<li>Tableau carré montrant les corrélations entre plusieurs variables</li>
+<li>Utile pour identifier les relations entre différentes caractéristiques dans un dataset
+exemple :
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Var1</th>
+          <th>Var2</th>
+          <th>Var3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Var1</td>
+          <td>1</td>
+          <td>0.8</td>
+          <td>-0.5</td>
+      </tr>
+      <tr>
+          <td>Var2</td>
+          <td>0.8</td>
+          <td>1</td>
+          <td>-0.3</td>
+      </tr>
+      <tr>
+          <td>Var3</td>
+          <td>-0.5</td>
+          <td>-0.3</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<h2 id="carte-des-corrélations">Carte des corrélations:</h2>
+<ul>
+<li>Représentation visuelle (heatmap) de la matrice de corrélation</li>
+<li>Utilise des couleurs pour indiquer la force et la direction des corrélations</li>
+<li>Aide à identifier rapidement les relations importantes entre les variables</li>
+</ul>
+<h3 id="statistiques-inférentielles">Statistiques inférentielles</h3>
+<p>Estimation : inférer des paramètres de la population à partir de l&rsquo;échantillon
+Intervalle de confiance : plage de valeurs dans laquelle un paramètre de la population est susceptible de se trouver
+Test d&rsquo;hypothèse : évaluer une hypothèse sur la population à partir de l&rsquo;échantillon</p>
+<table>
+  <thead>
+      <tr>
+          <th>Concept</th>
+          <th>Description</th>
+          <th>Exemple</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Population</td>
+          <td>Ensemble complet d&rsquo;individus ou d&rsquo;objets d&rsquo;intérêt</td>
+          <td>Tous les étudiants d&rsquo;une université</td>
+      </tr>
+      <tr>
+          <td>Echantillon</td>
+          <td>Sous-ensemble représentatif de la population</td>
+          <td>100 étudiants sélectionnés au hasard</td>
+      </tr>
+      <tr>
+          <td>Variable</td>
+          <td>Caractéristique mesurée ou observée (quantitative ou qualitative)</td>
+          <td>Âge (quantitative), Sexe (qualitative)</td>
+      </tr>
+      <tr>
+          <td>Distribution</td>
+          <td>Répartition des valeurs d&rsquo;une variable dans une population ou un échantillon</td>
+          <td>Distribution des notes d&rsquo;un examen</td>
+      </tr>
+      <tr>
+          <td>Moyenne</td>
+          <td>Somme des valeurs divisée par le nombre de valeurs</td>
+          <td>Moyenne des âges dans un échantillon</td>
+      </tr>
+      <tr>
+          <td>Médiane</td>
+          <td>Valeur centrale lorsque les données sont ordonnées</td>
+          <td>Médiane des salaires dans une entreprise</td>
+      </tr>
+      <tr>
+          <td>Mode</td>
+          <td>Valeur la plus fréquente dans l&rsquo;échantillon</td>
+          <td>Mode de la couleur préférée dans un sondage</td>
+      </tr>
+      <tr>
+          <td>Variance</td>
+          <td>Moyenne des carrés des écarts par rapport à la moyenne</td>
+          <td>Variance des scores d&rsquo;un test</td>
+      </tr>
+      <tr>
+          <td>Ecart-type</td>
+          <td>Racine carrée de la variance</td>
+          <td>Ecart-type des poids dans une population</td>
+      </tr>
+      <tr>
+          <td>Quartiles</td>
+          <td>Divisent les données en quatre parties égales</td>
+          <td>Q1, Q2 (médiane), Q3 des revenus dans une entreprise</td>
+      </tr>
+      <tr>
+          <td>Outliers</td>
+          <td>Points de données qui s&rsquo;écartent significativement de la tendance générale</td>
+          <td>Salaire exceptionnellement élevé dans un groupe de salariés</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="statistiques-inférentielle">Statistiques inférentielle</h2>
+<h3 id="estimation">Estimation</h3>
+<ul>
+<li>Inférer des paramètres de la population à partir de l&rsquo;échantillon</li>
+<li>Méthodes : estimateurs ponctuels (moyenne, variance), estimateurs par intervalle (IC)</li>
+<li>Exemple : Estimer la moyenne d&rsquo;une population à partir d&rsquo;un échantillon</li>
+</ul>
+<h4 id="différences-avec-la-statistique-descriptive">Différences avec la statistique descriptive</h4>
+<ul>
+<li>Descriptive : résumer et décrire les données</li>
+<li>Inférentielle : tirer des conclusions sur une population à partir d&rsquo;un échantillon</li>
+</ul>
+<h4 id="echantillonnage">Echantillonnage</h4>
+<ul>
+<li>Techniques : aléatoire simple, stratifié, par grappes</li>
+<li>Importance : représentativité, biais, variance</li>
+<li>Exemple : Tirer un échantillon aléatoire de 100 individus dans une population de 1000</li>
+<li>Biais d&rsquo;échantillonnage : erreurs systématiques dans la sélection de l&rsquo;échantillon</li>
+<li>Réduction : techniques d&rsquo;échantillonnage appropriées, ajustements statistiques</li>
+<li>Exemple : Sur-représentation d&rsquo;un groupe dans un sondage</li>
+</ul>
+<h4 id="types-déchantillonnage">Types d&rsquo;échantillonnage</h4>
+<ul>
+<li>Aléatoire simple : chaque individu a une chance égale d&rsquo;être sélectionné</li>
+<li>Stratifié : diviser la population en sous-groupes (strates) et échantillonner dans chaque strate</li>
+<li>Par grappes : diviser la population en grappes (groupes) et échantillonner des grappes entières</li>
+<li>SYSTEMATIQUE : sélectionner chaque k-ième individu dans une liste ordonnée</li>
+</ul>
+<h4 id="estimation-ponctuelle">Estimation ponctuelle</h4>
+<ul>
+<li>Estimation ponctuelle : valeur unique estimée à partir de l&rsquo;échantillon</li>
+<li>Exemple : Moyenne d&rsquo;un échantillon comme estimation ponctuelle de la moyenne de la population</li>
+</ul>
+<h4 id="intervalle-de-confiance">Intervalle de confiance</h4>
+<ul>
+<li>Plage de valeurs dans laquelle un paramètre de la population est susceptible de se trouver</li>
+<li>Niveau de confiance : probabilité que l&rsquo;intervalle contienne le paramètre (ex : 95%)</li>
+<li>Exemple : IC à 95% pour la moyenne d&rsquo;un échantillon</li>
+</ul>
+<h4 id="erreur-type-et-taille-déchantillon">Erreur type et taille d&rsquo;échantillon</h4>
+<ul>
+<li>Erreur type : mesure de la variabilité de l&rsquo;estimateur (σ/√n)</li>
+<li>Taille d&rsquo;échantillon : influence la précision de l&rsquo;estimation</li>
+<li>Exemple : Calculer l&rsquo;erreur type pour un échantillon de taille n=100</li>
+</ul>
+<h3 id="tests-dhypothèse">Tests d&rsquo;hypothèse</h3>
+<ul>
+<li>Évaluer une hypothèse sur la population à partir de l&rsquo;échantillon</li>
+<li>Étapes :
+<ul>
+<li>formuler H0 (Hypothèse nulle) et H1(alternative) : H0 : μ = μ0, H1 : μ ≠ μ0</li>
+<li>Choisir un niveau de signification (α) : ex 0.05</li>
+<li>Calculer la statistique de test : z = (x̄ - μ0) / (σ/√n)</li>
+<li>Prendre une décision : reject H0 if p-value &lt; α</li>
+</ul>
+</li>
+<li>Exemple : Tester si la moyenne d&rsquo;une population est égale à une valeur spécifique</li>
+</ul>
+<h4 id="exemples-de-tests">Exemples de tests</h4>
+<p>Test z:</p>
+<ul>
+<li>Comparer la moyenne d&rsquo;un échantillon à une valeur connue (test unilatéral ou bilatéral)</li>
+<li>Exemple : Tester si la moyenne des scores d&rsquo;un test est différente de 75, avec σ connu
+test t de student:</li>
+<li>Comparer la moyenne d&rsquo;un échantillon à une valeur connue (test unilatéral ou bilatéral)</li>
+<li>Exemple : Tester si la moyenne des scores d&rsquo;un test est différente de 75
+test khi-deux :</li>
+<li>Comparer des proportions ou des distributions observées</li>
+<li>Exemple : Tester l&rsquo;indépendance entre deux variables qualitatives dans un tableau de contingence
+ANOVA : analyse de la variance</li>
+<li>Comparer les moyennes de plusieurs groupes</li>
+<li>Exemple : Comparer les scores moyens de trois groupes d&rsquo;étudiants</li>
+</ul>
+<h3 id="applications-ia">Applications IA</h3>
+<p>Inférence bayésienne : mise à jour des croyances avec de nouvelles données</p>
+<ul>
+<li>Exemple : Classifier des emails en spam ou non-spam avec Naive Bayes
+Apprentissage supervisé : évaluer la performance des modèles</li>
+<li>Exemple : Utiliser des tests d&rsquo;hypothèse pour comparer deux algorithmes de classification
+Sélection de modèles : choisir le meilleur modèle parmi plusieurs</li>
+<li>Exemple : Utiliser AIC ou BIC pour sélectionner un modèle de régression</li>
+</ul>
+<h3 id="définitions">Définitions:</h3>
+<p>Intelligence Artificielle :</p>
+<ul>
+<li>Simulation de l&rsquo;intelligence humaine par des machines</li>
+<li>Sous-domaines : apprentissage automatique, traitement du langage naturel, vision par ordinateur</li>
+<li>Applications : chatbots, recommandations, reconnaissance faciale</li>
+</ul>
+<p>Machine Learning :</p>
+<ul>
+<li>Algorithmes permettant aux machines d&rsquo;apprendre à partir de données</li>
+<li>Types : supervisé, non supervisé, par renforcement</li>
+<li>Applications : classification, régression, clustering</li>
+</ul>
+<p>Deep Learning :</p>
+<ul>
+<li>Sous-domaine du machine learning utilisant des réseaux de neurones profonds</li>
+<li>Architectures : CNN, RNN, GAN</li>
+<li>Applications : reconnaissance d&rsquo;images, traduction automatique, génération de texte</li>
+</ul>
+<p>Notes : systèmes expert :</p>
+<ul>
+<li>Systèmes basés sur des règles pour simuler la prise de décision humaine</li>
+<li>Composants : base de connaissances, moteur d&rsquo;inférence</li>
+<li>Applications : diagnostic médical, assistance juridique
+Il suit une procédure logique (if&hellip; then&hellip;)</li>
+</ul>
+<p>Histoire en bref</p>
+<ul>
+<li>1950s-60s : débuts de l&rsquo;IA, premiers algorithmes. Turing, perceptron</li>
+<li>1970s-80s : systèmes experts, IA symbolique. Datalog, Prolog</li>
+<li>1990s-2000s : apprentissage automatique, big data. SVM, Random Forest</li>
+<li>2010s-présent : deep learning, IA générative. TensorFlow, PyTorch</li>
+</ul>
+
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-user-circle"></i> Ismael Martinez</h5>
+                    <p>Portfolio professionnel et documentation technique d&#39;Ismael Martinez</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p><i class="fas fa-rocket"></i> Généré avec Hugo</p>
+                    <p>&copy; 2025 Ismael Martinez</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
