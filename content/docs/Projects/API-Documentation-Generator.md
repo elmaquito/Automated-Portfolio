@@ -1,11 +1,20 @@
 ---
-title: "API Documentation Generator"
-description: "Outil automatique pour générer la documentation API depuis les commentaires de code"
-tags: ["api", "documentation", "python", "javascript", "projet"]
+title: API Documentation Generator
+description: Outil automatique pour générer la documentation API depuis les commentaires de code
+tags:
+  - api
+  - documentation
+  - python
+  - javascript
+  - projet
 date: 2025-10-15
-technologies: ["Python", "Sphinx", "JSDoc", "Node.js"]
-status: "🚧 En développement"
-github: "https://github.com/elmaquito/api-docs-generator"
+technologies:
+  - Python
+  - Sphinx
+  - JSDoc
+  - Node.js
+status: 🚧 En développement
+github: https://github.com/elmaquito/api-docs-generator
 ---
 
 # API Documentation Generator

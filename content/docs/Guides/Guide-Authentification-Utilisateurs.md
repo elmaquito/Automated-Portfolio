@@ -1,12 +1,3 @@
----
-title: "Guide d'authentification pour sites à faible trafic"
-description: "Options et recommandations pour l'authentification utilisateur sur des portfolios et sites à faible trafic"
-tags: ["authentification", "guide", "développement", "sécurité", "portfolio"]
-date: 2024-03-15
-draft: false
-weight: 30
----
-
 # 📝 Options d'authentification pour sites à faible trafic
 
 ## 🏆 Solutions recommandées par ordre de priorité
