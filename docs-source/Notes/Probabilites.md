@@ -11,6 +11,8 @@ tags:
   - theorie
 date: 2025-10-17
 ---
+Intervenant : Nicolas Metivier
+
  L'univers et les evènements : 
 - Univers : ensemble des éléments d'étude
 - Espace échantillonal : ensemble de tous les résultats possibles d'une expérience aléatoire
