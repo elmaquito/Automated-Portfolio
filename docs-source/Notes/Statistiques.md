@@ -18,9 +18,6 @@ Intervenant : Nicolas Metivier
 Contexte:
  double activité
 	 supervision, automatisation et IA.
-
-En mathématique, Statistiques et Probabilités:
-
 ### Pourquoi les statistiques au coeur de l'IA
  L'IA repose sur des données
  les stats permettent de resumer, interpreter et fiabiliser, les proba permettent de modeliser l'incertitude et les aleas et donc de prendre des decisions en consequence.
