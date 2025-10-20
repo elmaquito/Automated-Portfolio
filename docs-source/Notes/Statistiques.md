@@ -93,8 +93,8 @@ Exemple vulgarisé :
  - Étendue : 6 - 1 = 5
 
 Asymétrie et aplatissment:
- - Asymétrie : mesure de la symétrie de la distribution (positive, négative, nulle)
-	![[Pasted image 20251013141254.png]]
+ - Asymétrie : mesure de la symétrie de la distribution (positive, négative, nulle)4
+![[Pasted image 20251013141254.png]]
  - Kurtosis : mesure de la "pointedness" de la distribution (leptokurtique, platykurtique, mésokurtique)
 ![[Pasted image 20251013141342.png]]
  

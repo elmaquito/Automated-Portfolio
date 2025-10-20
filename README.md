@@ -4,33 +4,143 @@ Portfolio professionnel avec documentation technique automatisée, généré ave
 
 ## ✨ Fonctionnalités
 
-- 🏗️ **Site statique Hugo** avec thème Docsy professionnel
+- 🏗️ **Site statique Hugo** avec layouts personnalisés Bootstrap 5
 - 📝 **Sync Obsidian automatique** - Écrivez en Markdown, publiez automatiquement
 - 🔄 **CI/CD complet** - GitHub Actions → Build → Deploy OVH
-- 📚 **API Documentation** - Génération auto Python (Sphinx) + JavaScript (JSDoc)
-- 🔍 **Recherche intégrée** - lunr.js pour recherche full-text côté client
-- 📱 **Responsive & Performance** - Mobile-first, optimisations automatiques
-- 📧 **Contact & Commentaires** - Formspree + Giscus intégrés
-- 📊 **Analytics** - Plausible privacy-friendly
-- 🏷️ **Versioning** - Documentation versionnée par tags Git
+-  **Responsive & Performance** - Mobile-first, optimisations automatiques
+- � **Validation automatique** - Markdown, YAML frontmatter, liens
+- 📊 **Portfolio projets** - Showcase automatique depuis documentation
 
 ## 🏗️ Architecture
 
 ```
 Automated-Portfolio/
 ├── .github/workflows/       # GitHub Actions (CI/CD)
-├── config/                 # Configuration Hugo
-├── content/                # Contenu du site
+│   ├── deploy.yml          # Workflow principal (build + deploy)
+│   ├── obsidian-sync.yml   # Sync Obsidian → content/
+│   └── api-docs.yml        # Génération docs API
+├── content/                # Contenu Hugo (généré depuis docs-source)
 │   ├── projects/          # Portfolio projets
 │   ├── docs/              # Documentation technique
 │   ├── blog/              # Articles
 │   └── about/             # Pages statiques
-├── static/                # Assets (images, CSS, JS)
-├── layouts/               # Templates Hugo personnalisés
-├── scripts/               # Scripts d'automatisation
-├── docs-source/           # Vault Obsidian (source)
-└── themes/                # Thème Hugo Docsy
+├── docs-source/           # Vault Obsidian (source de vérité)
+│   ├── Notes/            # Notes techniques
+│   ├── Guides/           # Guides et tutorials
+│   └── Projects/         # Documentation projets
+├── docs/                  # Documentation du projet
+│   ├── DEPLOYMENT.md     # Guide déploiement
+│   ├── DEVELOPMENT.md    # Guide développement
+│   └── TROUBLESHOOTING.md # Guide dépannage
+├── layouts/              # Templates Hugo personnalisés
+├── static/               # Assets (images, CSS, JS)
+├── scripts/              # Scripts d'automatisation
+└── config/               # Configuration Hugo
 ```
+
+## 🚀 Déploiement
+
+### Installation
+
+```bash
+# Cloner le repository
+git clone https://github.com/elmaquito/Automated-Portfolio.git
+cd Automated-Portfolio
+
+# Installer les dépendances
+npm install
+
+# Développement local
+hugo server -D
+
+# Build de production
+hugo --minify
+```
+
+## 📝 Workflow Obsidian
+
+### Configuration
+
+1. Cloner le repo localement
+2. Ouvrir `docs-source/` comme vault Obsidian
+3. Installer le plugin **Obsidian Git**
+4. Configurer auto-commit sur sauvegarde
+
+### Publication Automatique
+
+1. **Écrire** dans Obsidian (`docs-source/`)
+2. **Auto-commit** Git (plugin Obsidian)
+3. **GitHub Action** convertit et déploie automatiquement
+4. **Site live** en quelques minutes sur https://www.martinezismael.fr
+
+### Formats Supportés
+
+- Frontmatter YAML automatiquement préservé
+- Liens internes Obsidian convertis automatiquement
+- Images optimisées et déployées
+- Structure de dossiers maintenue
+
+## 🛠️ Scripts Disponibles
+
+```bash
+npm run dev          # Serveur de développement Hugo
+npm run build        # Build de production
+npm run validate     # Validation Markdown
+```
+
+## 🔧 Configuration OVH
+
+### GitHub Secrets Requis
+```
+FTP_PASSWORD=Pzz8F2SsJA6PcDYUa5ctuzjphstJ
+```
+
+### Hébergement
+- **Host**: `ftp.cluster021.hosting.ovh.net`
+- **Username**: `martisx`
+- **Directory**: `/www/`
+- **Site**: https://www.martinezismael.fr
+
+## 📚 Documentation
+
+- [🚀 Guide de Déploiement](docs/DEPLOYMENT.md)
+- [🛠️ Guide de Développement](docs/DEVELOPMENT.md)  
+- [🔧 Guide de Dépannage](docs/TROUBLESHOOTING.md)
+
+## 🎯 Roadmap
+
+### Phase 1 ✅
+- [x] Structure Hugo optimisée
+- [x] Layouts Bootstrap 5 personnalisés
+- [x] Workflows GitHub Actions
+- [x] Déploiement OVH automatique
+- [x] Validation Markdown intégrée
+
+### Phase 2 🚧
+- [x] Sync Obsidian fonctionnel
+- [ ] Formulaire contact Formspree
+- [ ] Système commentaires Giscus
+- [ ] Analytics Plausible
+
+### Phase 3 📋
+- [ ] Recherche lunr.js
+- [ ] Génération API docs Python/JS
+- [ ] Versioning documentation
+- [ ] Optimisations performance avancées
+
+## 📞 Support
+
+- 📧 [Contact](https://www.martinezismael.fr/contact/)
+- 🐛 [Issues GitHub](https://github.com/elmaquito/Automated-Portfolio/issues)
+- 📖 [Documentation](https://www.martinezismael.fr/docs/)
+
+## 📄 Licence
+
+MIT © [Ismael Martinez](https://github.com/elmaquito)
+
+---
+
+*Généré automatiquement avec ❤️ par Hugo + GitHub Actions*
 
 ## 🚀 Déploiement
 

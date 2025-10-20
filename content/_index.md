@@ -7,7 +7,7 @@ type: "page"
 
 # 👋 Bienvenue sur mon Portfolio
 
-Je suis **Ismael Martinez**, développeur Full Stack passionné par les technologies web modernes et l'automatisation des processus de développement.
+Je suis **Ismael Martinez**, Expert en Systèmes d'information passionné par les technologies modernes et l'automatisation du SI.
 
 ## 🚀 Ce que vous trouverez ici
 
@@ -30,10 +30,10 @@ N'hésitez pas à me contacter pour discuter de vos projets ou d'opportunités d
 
 ## 🔧 Technologies principales
 
-- **Frontend**: React, Vue.js, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Python, PHP, API REST/GraphQL
-- **Base de données**: PostgreSQL, MongoDB, Redis
-- **DevOps**: Docker, CI/CD, Automatisation
+- **Frontend**: React, Vue.js, CSS
+- **Backend**: Node.js, Python, API REST
+- **Base de données**: PostgreSQL, MySQL
+- **DevOps**: Docker, CI/CD, Automatisation, YAML
 - **Outils**: Git, Hugo, Obsidian, VS Code
 
 ---

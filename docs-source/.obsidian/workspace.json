@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Probabilites.md",
+                "file": "Notes/Statistiques.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Probabilites"
+              "title": "Statistiques"
             }
           }
         ],
@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 550.5
   },
   "right": {
     "id": "d78ebef3302aa660",
@@ -197,17 +197,17 @@
   },
   "active": "13a2dedd1fcd52ce",
   "lastOpenFiles": [
-    "Notes/Statistiques.md",
+    "Projects/Premier-Test-Obsidian.md",
     "Notes/Probabilites.md",
+    "Notes/Note Technique.md",
+    "Notes/Statistiques.md",
     "Guides/Guide-Utilisation-Obsidian.md",
     "attachments/photos pro .jpg",
     "attachments/Pasted image 20251013143212.png",
     "attachments/Pasted image 20251013141342.png",
     "attachments/Pasted image 20251013141254.png",
     "attachments/15_union_intersection_difference_symmetric-347325689.png",
-    "Notes/Note Technique.md",
     "Projects/API-Documentation-Generator.md",
-    "Projects/Premier-Test-Obsidian.md",
     "conflict-files-obsidian-git.md",
     "Projects/Personal-Dashboard-Analytics.md",
     "Guides/Guide-Authentification-Utilisateurs.md",
