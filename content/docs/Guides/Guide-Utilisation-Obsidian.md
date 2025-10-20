@@ -1,55 +1,106 @@
-<<<<<<< HEAD
----------
+---<<<<<<< HEAD
 
-title: "Guide d'utilisation Obsidian"
+title: "Guide d'utilisation Obsidian"---------
 
-description: "Guide pour utiliser Obsidian avec le portfolio automatisé"title: "Guide d'utilisation Obsidian"title: "Guide d'utilisation Obsidian"
+description: "Guide pour utiliser Obsidian avec le portfolio automatisé"
 
-tags: ["guide", "obsidian", "workflow"]
+tags: ["guide", "obsidian", "workflow"]title: "Guide d'utilisation Obsidian"
 
-date: 2025-10-17description: "Guide pour utiliser Obsidian avec le portfolio automatisé"description: "Guide pour utiliser Obsidian avec le portfolio automatisé"
+date: 2025-10-17
 
----
+---description: "Guide pour utiliser Obsidian avec le portfolio automatisé"title: "Guide d'utilisation Obsidian"title: "Guide d'utilisation Obsidian"
 
-tags: ["guide", "obsidian", "workflow"]tags: ["guide", "obsidian", "workflow"]
 
-# Guide d'utilisation du Portfolio Automatisé
 
-date: 2025-10-17date: 2025-10-17
+# Guide d'utilisation du Portfolio Automatisétags: ["guide", "obsidian", "workflow"]
 
-## Workflow de documentation
 
-------
 
-### Écriture avec Obsidian
+## Workflow de documentationdate: 2025-10-17description: "Guide pour utiliser Obsidian avec le portfolio automatisé"description: "Guide pour utiliser Obsidian avec le portfolio automatisé"
+
+
+
+### Écriture avec Obsidian---
 
 - Utilisez ce vault (`docs-source/`) pour écrire vos notes
 
-- Organisez vos fichiers dans les dossiers `Projects/`, `Guides/`, `Notes/`
+- Organisez vos fichiers dans les dossiers `Projects/`, `Guides/`, `Notes/`tags: ["guide", "obsidian", "workflow"]tags: ["guide", "obsidian", "workflow"]
 
-- Les images vont dans `attachments/`# Guide d'utilisation du Portfolio Automatisé# Guide d'utilisation du Portfolio Automatisé
-=======
-# Guide d'utilisation du Portfolio Automatisé
->>>>>>> origin/main
-
-## Workflow de documentation
-
-### Écriture avec Obsidian
-- Utilisez ce vault (`docs-source/`) pour écrire vos notes
-- Organisez vos fichiers dans les dossiers `Projects/`, `Guides/`, `Notes/`
 - Les images vont dans `attachments/`
 
+# Guide d'utilisation du Portfolio Automatisé
+
 ### Synchronisation automatique
-Le plugin Obsidian Git va :
-<<<<<<< HEAD
 
-1. **Auto-commit** vos changements## Workflow de documentation## Workflow de documentation
+Le plugin Obsidian Git va :date: 2025-10-17date: 2025-10-17
 
-2. **Push** vers GitHub 
+1. **Auto-commit** vos changements
+
+2. **Push** vers GitHub ## Workflow de documentation
 
 3. Déclencher la **GitHub Action** de sync
 
-4. Convertir et déployer vers le **site web**
+4. Convertir et déployer vers le **site web**------
+
+
+
+### Syntaxe supportée### Écriture avec Obsidian
+
+- `{{< ref "/docs/projects/premier-test-obsidian.md" >}}` → Convertis en liens Hugo
+
+- `![Image](/images/docs/images.png)` → Images copiées automatiquement  - Utilisez ce vault (`docs-source/`) pour écrire vos notes
+
+- **Métadonnées YAML** → Préservées pour Hugo
+
+- **Markdown standard** → Supporté intégralement- Organisez vos fichiers dans les dossiers `Projects/`, `Guides/`, `Notes/`
+
+
+
+## Configuration du plugin Obsidian Git- Les images vont dans `attachments/`# Guide d'utilisation du Portfolio Automatisé# Guide d'utilisation du Portfolio Automatisé
+
+=======
+
+1. **Installer** le plugin "Obsidian Git"# Guide d'utilisation du Portfolio Automatisé
+
+2. **Activer** l'auto-backup>>>>>>> origin/main
+
+3. **Configurer** :
+
+   - Auto backup interval: 5 minutes## Workflow de documentation
+
+   - Auto pull interval: 10 minutes
+
+   - Commit message: "📝 Auto-sync Obsidian notes"### Écriture avec Obsidian
+
+- Utilisez ce vault (`docs-source/`) pour écrire vos notes
+
+## Structure recommandée- Organisez vos fichiers dans les dossiers `Projects/`, `Guides/`, `Notes/`
+
+- Les images vont dans `attachments/`
+
+```
+
+docs-source/### Synchronisation automatique
+
+├── Projects/          # Documentation projetsLe plugin Obsidian Git va :
+
+├── Guides/           # Tutoriels et guides  <<<<<<< HEAD
+
+├── Notes/            # Notes techniques
+
+├── attachments/      # Images et fichiers1. **Auto-commit** vos changements## Workflow de documentation## Workflow de documentation
+
+└── _index.md         # Page d'accueil docs
+
+```2. **Push** vers GitHub 
+
+
+
+---3. Déclencher la **GitHub Action** de sync
+
+
+
+*Ce guide sera également synchronisé automatiquement !*4. Convertir et déployer vers le **site web**
 
 ### Écriture avec Obsidian### Écriture avec Obsidian
 
