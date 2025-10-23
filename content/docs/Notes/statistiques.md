@@ -18,9 +18,6 @@ Intervenant : Nicolas Metivier
 Contexte:
  double activité
 	 supervision, automatisation et IA.
-
-En mathématique, Statistiques et Probabilités:
-
 ### Pourquoi les statistiques au coeur de l'IA
  L'IA repose sur des données
  les stats permettent de resumer, interpreter et fiabiliser, les proba permettent de modeliser l'incertitude et les aleas et donc de prendre des decisions en consequence.
@@ -95,9 +92,11 @@ Exemple vulgarisé :
  - Ecart-type : √2.29 = 1.51
  - Étendue : 6 - 1 = 5
 
-Asymétrie et aplatissement:
- - Asymétrie : mesure de la symétrie de la distribution (positive, négative, nulle)
+Asymétrie et aplatissment:
+ - Asymétrie : mesure de la symétrie de la distribution (positive, négative, nulle)4
+![Image](/images/docs/Pasted image 20251013141254.png)
  - Kurtosis : mesure de la "pointedness" de la distribution (leptokurtique, platykurtique, mésokurtique)
+![Image](/images/docs/Pasted image 20251013141342.png)
  
 Exemple :
  - Données : [1, 2, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -154,7 +153,8 @@ zscore = (xi - μ) / σ
 	| Var2| 0.8  |  1   | -0.3 |
 	| Var3| -0.5 | -0.3 |  1   |
 
-## Carte des corrélations:
+![Image](/images/docs/Pasted image 20251013143212.png)
+## carte des corrélations:
  - Représentation visuelle (heatmap) de la matrice de corrélation
  - Utilise des couleurs pour indiquer la force et la direction des corrélations
  - Aide à identifier rapidement les relations importantes entre les variables

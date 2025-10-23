@@ -1,10 +1,3 @@
----
-title: "Guide d'utilisation Obsidian"
-description: "Guide pour utiliser Obsidian avec le portfolio automatisé"
-tags: ["guide", "obsidian", "workflow"]
-date: 2025-10-17
----
-
 # Guide d'utilisation du Portfolio Automatisé
 
 ## Workflow de documentation
@@ -22,7 +15,7 @@ Le plugin Obsidian Git va :
 4. Convertir et déployer vers le **site web**
 
 ### Syntaxe supportée
-- `{{< ref "/docs/projects/premier-test-obsidian.md" >}}` → Convertis en liens Hugo
+- `{{< ref "liens-internes" >}}` → Convertis en liens Hugo
 - `![Image](/images/docs/images.png)` → Images copiées automatiquement  
 - **Métadonnées YAML** → Préservées pour Hugo
 - **Markdown standard** → Supporté intégralement

@@ -11,6 +11,8 @@ tags:
   - theorie
 date: 2025-10-17
 ---
+Intervenant : Nicolas Metivier
+
  L'univers et les evènements : 
 - Univers : ensemble des éléments d'étude
 - Espace échantillonal : ensemble de tous les résultats possibles d'une expérience aléatoire
@@ -39,6 +41,7 @@ date: 2025-10-17
 - Normalisation : P(Ω) = 1, où Ω est l'univers
 - Additivité : pour des événements mutuellement exclusifs A1, A2, ..., An, P(A1 ∪ A2 ∪ ... ∪ An) = P(A1) + P(A2) + ... + P(An)
 
+![Image](/images/docs/15_union_intersection_difference_symmetric-347325689.png)
 #### Probabilités d'un évènement
 - Probabilité d'un événement A : P(A) = nombre de cas favorables / nombre de cas possibles
 	- Exemple : lancer un dé, A = obtenir un nombre pair {2,4,6}, P(A) = 3/6 = 0.5
