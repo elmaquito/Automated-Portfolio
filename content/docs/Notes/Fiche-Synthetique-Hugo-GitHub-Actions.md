@@ -1,14 +1,7 @@
 ﻿---
 title: "Fiche Synthetique Hugo & GitHub Actions"
 description: "Synthese des fonctionnalites Hugo et integration avec GitHub Actions pour deploiement automatise"
-tags:
- - note
- - technique
- - hugo
- - github-actions
- - deployment
- - automation
- - ssg
+tags: ["note", "technique", "hugo", "github-actions", "deployment", "automation", "ssg"]
 date: 2025-10-23T13:15:05Z
 summary: "Guide complet Hugo et GitHub Actions pour deploiement automatise de sites statiques"
 ---

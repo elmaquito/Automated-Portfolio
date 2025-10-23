@@ -14,7 +14,7 @@ Ceci est un test de synchronisation entre Obsidian et Hugo.
 ## Test des fonctionnalités
 
 ### Liens internes
-Voici un lien vers {{< ref "notes/note-technique" >}} qui sera converti automatiquement.
+Voici un lien vers les notes techniques qui sera converti automatiquement.
 
 ### Images
 ![Image](/images/docs/photos pro .jpg) - Cette image sera copiée automatiquement dans Hugo.

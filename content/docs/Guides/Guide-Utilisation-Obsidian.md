@@ -28,7 +28,7 @@ Le plugin Obsidian Git va :
 4. Convertir et déployer vers le **site web**
 
 ### Syntaxe supportée
-- `{{< ref "liens-internes" >}}` → Convertis en liens Hugo
+- Liens internes Markdown → Convertis en liens Hugo
 - `![Image](/images/docs/images.png)` → Images copiées automatiquement  
 - **Métadonnées YAML** → Préservées pour Hugo
 - **Markdown standard** → Supporté intégralement
