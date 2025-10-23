@@ -12,14 +12,12 @@ mkdir -p .backup/content/blog/
 
 # Backup
 cp content/docs/_index.md .backup/content/docs/
-cp content/docs/Guides/Guide-Utilisation-Obsidian.md .backup/content/docs/
 cp content/docs/Projects/Premier-Test-Obsidian.md .backup/content/docs/
 cp content/blog/automatiser-portfolio-hugo-github-actions.md .backup/content/blog/
 
 echo "📥 Files backed up to .backup/"
 
-# Supprimer temporairement les fichiers problématiques
-rm content/docs/Guides/Guide-Utilisation-Obsidian.md
+# Note: Guide-Utilisation-Obsidian.md has been resolved and no longer needs emergency fixes
 rm content/docs/Projects/Premier-Test-Obsidian.md
 
 echo "🗑️ Removed problematic files temporarily"
