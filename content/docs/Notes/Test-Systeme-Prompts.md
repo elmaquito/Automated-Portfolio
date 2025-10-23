@@ -37,7 +37,7 @@ PowerShell -ExecutionPolicy Bypass -File scripts/create-content-simple.ps1 -Type
 **Resultats** :
 ```
 GENERATEUR DE CONTENU - Portfolio Automatise
-=============================================
+----------------------------------------------
 Creation d'un nouveau note : Test Systeme Prompts
 Categorie : Notes
 Description : Test du nouveau systeme d'automatisation de redaction
