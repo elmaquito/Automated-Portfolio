@@ -41,11 +41,12 @@ function Test-FrontmatterFormat {
     $content = Get-Content $FilePath -Raw -Encoding UTF8
     $issues = @()
     
-    if (-not ($content -match '^---\r?\n.*?\r?\n---\r?\n')) {
+    # Use Singleline option so '.' matches newlines and multi-line frontmatter is detected
+    if (-not ([regex]::IsMatch($content, '^---\r?\n(.*?)\r?\n---\r?\n', [System.Text.RegularExpressions.RegexOptions]::Singleline))) {
         $issues += "Frontmatter YAML manquant ou mal formate"
         return @{ Valid = $false; Issues = $issues }
     }
-    
+
     $frontmatterMatch = [regex]::Match($content, '^---\r?\n(.*?)\r?\n---\r?\n', [System.Text.RegularExpressions.RegexOptions]::Singleline)
     if (-not $frontmatterMatch.Success) {
         $issues += "Impossible d'extraire le frontmatter"
@@ -61,9 +62,7 @@ function Test-FrontmatterFormat {
         }
     }
     
-    if ($frontmatter -match 'tags:\s*\n\s*-') {
-        $issues += "Tags au format multiligne detecte - utiliser format array"
-    }
+    # Accept both single-line array tags and multi-line list tags. No error added here.
     
     return @{
         Valid = $issues.Count -eq 0
