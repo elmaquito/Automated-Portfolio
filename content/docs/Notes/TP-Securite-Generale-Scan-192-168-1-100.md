@@ -1,14 +1,9 @@
-------
-
-title: "TP Securite Generale : Scans de cible"title: "TP Securite Generale : Scans de cible"
-
-description: Rapport d'exécution d'un script de scan de cible.description: Rapport d'exécution d'un script de scan de cible.
-
-tags:tags:
-
- - note - note
-
- - technique - technique
+---
+title: "TP Securite Generale : Scans de cible"
+description: Rapport d'exécution d'un script de scan de cible.
+tags:
+ - note
+ - technique
 
  - obsidian - obsidian
 

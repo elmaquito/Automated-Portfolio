@@ -1,3 +1,15 @@
+---
+title: "Guide d'utilisation du Portfolio Automatisé"
+description: Documentation du workflow de documentation avec Obsidian et synchronisation automatique
+tags:
+ - guide
+ - obsidian
+ - workflow
+ - documentation
+ - portfolio
+date: 2025-10-23
+---
+
 # Guide d'utilisation du Portfolio Automatisé
 
 ## Workflow de documentation
