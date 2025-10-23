@@ -1,33 +1,22 @@
 ---
 title: "TP Securite Generale : Scans de cible"
-description: Rapport d'exécution d'un script de scan de cible.
+description: "Rapport d'exécution d'un script de scan de cible"
 tags:
  - note
  - technique
+ - obsidian
+ - IA
+ - Limayrac
+ - TP
+ - Reseau
+ - Securite
+ - Scan
+ - Bash
+date: 2025-10-23T09:00:00Z
+summary: "Analyse de sécurité complète de la cible 192.168.1.100"
+---
 
- - obsidian - obsidian
-
- - IA - IA
-
- - Limayrac - Limayrac
-
- - TP - TP
-
- - Reseau - Reseau
-
- - Securite - Securite
-
- - Scan - Scan
-
- - Bash - Bash
-
-date: 2025-10-23date: 2025-10-23
-
-------
-
-
-
-{{< difficulty level="intermediate" >}}{{< difficulty level="intermediate" >}}
+{{< difficulty level="intermediate" >}}
 
 {{< reading-time minutes="4" >}}{{< reading-time minutes="4" >}}
 
