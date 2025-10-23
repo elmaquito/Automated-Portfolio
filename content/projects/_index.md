@@ -12,7 +12,7 @@ Cette page affiche automatiquement tous mes projets, qu'ils soient codés manuel
 ## 🎯 Types de projets
 
 ### 🌐 Applications Web
-Applications full-stack avec interfaces modernes et backends robustes.
+Applications web avec interfaces modernes
 
 ### 🔧 Outils d'Automatisation  
 Scripts et applications pour automatiser les tâches répétitives et améliorer la productivité.
@@ -28,11 +28,10 @@ Explorations techniques et expérimentations avec de nouvelles technologies.
 ## 🚀 Projets Principaux
 
 ### Portfolio Automatisé
-**Technologies** : Hugo, GitHub Actions, OVH, Obsidian  
+**Technologies** : Hugo, GitHub Actions, OVH  
 **Description** : Site web portfolio avec génération automatique de documentation et déploiement continu.
 
 **Fonctionnalités** :
-- 📝 Sync automatique Obsidian → Hugo
 - 🔄 CI/CD complet avec GitHub Actions  
 - 📚 Génération documentation API (Python/JS)
 - 🔍 Recherche full-text intégrée
