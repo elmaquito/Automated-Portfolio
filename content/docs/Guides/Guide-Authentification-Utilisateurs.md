@@ -1,3 +1,16 @@
+---
+title: "Guide d'authentification utilisateurs"
+description: "Options d'authentification pour sites à faible trafic - solutions recommandées"
+tags:
+ - guide
+ - authentification
+ - sécurité
+ - web
+ - développement
+date: 2025-10-23T09:00:00Z
+summary: "Guide complet des solutions d'authentification pour sites web à faible trafic"
+---
+
 # 📝 Options d'authentification pour sites à faible trafic
 
 ## 🏆 Solutions recommandées par ordre de priorité

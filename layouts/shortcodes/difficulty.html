@@ -1,0 +1,28 @@
+{{/* Shortcode pour afficher le niveau de difficulté */}}
+{{ $level := .Get "level" | default "beginner" }}
+{{ $icon := "" }}
+{{ $text := "" }}
+{{ $class := "" }}
+
+{{ if eq $level "beginner" }}
+    {{ $icon = "🟢" }}
+    {{ $text = "Débutant" }}
+    {{ $class = "difficulty-beginner" }}
+{{ else if eq $level "intermediate" }}
+    {{ $icon = "🟡" }}
+    {{ $text = "Intermédiaire" }}
+    {{ $class = "difficulty-intermediate" }}
+{{ else if eq $level "advanced" }}
+    {{ $icon = "🔴" }}
+    {{ $text = "Avancé" }}
+    {{ $class = "difficulty-advanced" }}
+{{ else if eq $level "expert" }}
+    {{ $icon = "🟣" }}
+    {{ $text = "Expert" }}
+    {{ $class = "difficulty-expert" }}
+{{ end }}
+
+<div class="difficulty-badge {{ $class }}">
+    <span class="difficulty-icon">{{ $icon }}</span>
+    <span class="difficulty-text">Niveau: {{ $text }}</span>
+</div>

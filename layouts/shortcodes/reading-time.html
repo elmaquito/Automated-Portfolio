@@ -1,0 +1,8 @@
+{{/* Shortcode pour afficher le temps de lecture estimé */}}
+{{ $minutes := .Get "minutes" | default "5" }}
+{{ $icon := "📖" }}
+
+<div class="reading-time-badge">
+    <span class="reading-time-icon">{{ $icon }}</span>
+    <span class="reading-time-text">Temps de lecture: {{ $minutes }} min</span>
+</div>
