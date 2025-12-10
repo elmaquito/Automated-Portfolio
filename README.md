@@ -51,22 +51,40 @@ Automated-Portfolio/
 └── requirements.txt       # Python dependencies (NEW)
 ```
 
-## 🚀 Déploiement
+## 🚀 Quick Start
 
-### Installation
+### Phase 1: Data Collection & Anomaly Detection
 
 ```bash
-# Cloner le repository
+# Clone repository
 git clone https://github.com/elmaquito/Automated-Portfolio.git
 cd Automated-Portfolio
 
-# Installer les dépendances
+# Bootstrap environment (installs dependencies, starts services)
+./scripts/bootstrap.sh
+
+# Initialize infrastructure (creates Kafka topics, ES indices)
+./scripts/init.sh
+
+# Generate and load sample data
+./scripts/seed-data.sh
+
+# Access dashboards
+# - Grafana: http://localhost:3000 (admin/admin)
+# - Kibana: http://localhost:5601
+# - Prometheus: http://localhost:9090
+```
+
+### Hugo Portfolio (Original)
+
+```bash
+# Install dependencies
 npm install
 
-# Développement local
+# Local development
 hugo server -D
 
-# Build de production
+# Production build
 hugo --minify
 ```
 
@@ -281,23 +299,35 @@ FTP_PASSWORD=Pzz8F2SsJA6PcDYUa5ctuzjphstJ
 
 ## 🎯 Roadmap
 
-### Phase 1 ✅
-- [x] Structure Hugo de base
-- [x] Thème Docsy configuré
-- [x] Workflows GitHub Actions
-- [x] Déploiement OVH automatique
+### Phase 1 ✅ (COMPLETE - Data Collection & Simulation)
+- [x] Complete infrastructure setup (Kafka, Prometheus, Grafana, ELK)
+- [x] Time series data generator with 5 anomaly types
+- [x] Kafka playback and data ingestion pipeline
+- [x] Docker Compose orchestration
+- [x] Automation scripts (bootstrap, init, seed-data)
+- [x] Comprehensive documentation
+- [x] Unit tests (17/17 passing)
+- [x] Security scan (0 vulnerabilities)
 
-### Phase 2 🚧
+### Phase 2 📋 (Portfolio & Documentation)
 - [ ] Sync Obsidian fonctionnel
 - [ ] Génération API docs Python/JS
 - [ ] Formulaire contact Formspree
 - [ ] Système commentaires Giscus
 
-### Phase 3 📋
-- [ ] Recherche lunr.js
-- [ ] Analytics Plausible
-- [ ] Versioning documentation
-- [ ] Optimisations performance
+### Phase 3 📋 (ML Models & Serving)
+- [ ] Baseline anomaly detection models
+- [ ] Deep learning models (LSTM, Autoencoder)
+- [ ] Model training pipeline
+- [ ] TensorFlow Serving integration
+- [ ] Real-time anomaly detection API
+
+### Phase 4 📋 (Production & Monitoring)
+- [ ] Model performance tracking
+- [ ] Data drift detection
+- [ ] Alert generation and routing
+- [ ] Production deployment
+- [ ] Analytics and dashboards
 
 ## 📞 Support
 
