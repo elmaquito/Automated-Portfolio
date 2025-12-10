@@ -8,10 +8,13 @@ import pandas as pd
 from pathlib import Path
 import sys
 
-# Add parent directory to path
+# Add src directory to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from collector.generate_timeseries import TimeSeriesGenerator
+try:
+    from collector.generate_timeseries import TimeSeriesGenerator
+except ImportError:
+    from src.collector.generate_timeseries import TimeSeriesGenerator
 
 
 class TestTimeSeriesGenerator:

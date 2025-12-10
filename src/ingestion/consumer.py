@@ -36,6 +36,7 @@ class MetricsConsumer:
             raise RuntimeError("kafka-python is not installed")
         
         self.topic = topic
+        self.group_id = group_id
         self.consumer = KafkaConsumer(
             topic,
             bootstrap_servers=bootstrap_servers,
@@ -82,7 +83,7 @@ class MetricsConsumer:
     def consume(self):
         """Start consuming messages."""
         print(f"Starting consumer for topic '{self.topic}'...")
-        print(f"Group ID: {self.consumer._group_id}")
+        print(f"Group ID: {self.group_id}")
         print("-" * 60)
         
         try:

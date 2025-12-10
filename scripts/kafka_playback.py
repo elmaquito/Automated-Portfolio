@@ -114,11 +114,13 @@ class KafkaDataPlayback:
                         'is_anomaly': int(row['is_anomaly'])
                     }
                     
-                    self.send_message(
-                        key=str(row['series_id']),
-                        value=message,
-                        timestamp=timestamp
-                    )
+                    # Ensure timestamp is valid before sending
+                    if pd.notna(timestamp):
+                        self.send_message(
+                            key=str(row['series_id']),
+                            value=message,
+                            timestamp=timestamp
+                        )
                 
                 prev_timestamp = timestamp
                 
@@ -141,11 +143,13 @@ class KafkaDataPlayback:
                     'is_anomaly': int(row['is_anomaly'])
                 }
                 
-                self.send_message(
-                    key=str(row['series_id']),
-                    value=message,
-                    timestamp=timestamp
-                )
+                # Ensure timestamp is valid before sending
+                if pd.notna(timestamp):
+                    self.send_message(
+                        key=str(row['series_id']),
+                        value=message,
+                        timestamp=timestamp
+                    )
                 
                 # Print progress
                 if self.messages_sent % 1000 == 0:

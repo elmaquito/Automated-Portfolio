@@ -90,7 +90,8 @@ class TimeSeriesGenerator:
         labels = np.zeros(len(series), dtype=int)
         
         end_pos = min(position + duration, len(series))
-        local_mean = np.mean(series[max(0, position-10):position+10])
+        # Use only past data to avoid look-ahead bias
+        local_mean = np.mean(series[max(0, position-10):position]) if position > 0 else np.mean(series[:10])
         series_copy[position:end_pos] *= magnitude
         labels[position:end_pos] = 1  # Mark as anomaly
         
