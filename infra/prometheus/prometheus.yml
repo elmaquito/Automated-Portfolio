@@ -1,0 +1,55 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'automated-portfolio'
+    environment: 'dev'
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           - alertmanager:9093
+
+# Load rules once and periodically evaluate them
+rule_files:
+  - "rules/*.yml"
+
+# Scrape configurations
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          instance: 'prometheus'
+
+  # Kafka exporter (if deployed)
+  - job_name: 'kafka'
+    static_configs:
+      - targets: ['kafka-exporter:9308']
+        labels:
+          service: 'kafka'
+
+  # Custom application metrics
+  - job_name: 'collector'
+    static_configs:
+      - targets: ['collector:8000']
+        labels:
+          service: 'collector'
+          component: 'data-generator'
+
+  - job_name: 'ingestion'
+    static_configs:
+      - targets: ['ingestion:8000']
+        labels:
+          service: 'ingestion'
+          component: 'kafka-consumer'
+
+  # Node exporter (system metrics)
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'node-exporter'

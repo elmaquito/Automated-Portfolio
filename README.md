@@ -1,41 +1,54 @@
 # 🚀 Portfolio Automatisé - Ismael Martinez
 
-Portfolio professionnel avec documentation technique automatisée, généré avec Hugo et déployé sur OVH.
+Portfolio professionnel avec documentation technique automatisée, monitoring et détection d'anomalies.
 
 ## ✨ Fonctionnalités
 
+### Portfolio & Documentation
 - 🏗️ **Site statique Hugo** avec layouts personnalisés Bootstrap 5
 - 📝 **Sync Obsidian automatique** - Écrivez en Markdown, publiez automatiquement
 - 🔄 **CI/CD complet** - GitHub Actions → Build → Deploy OVH
--  **Responsive & Performance** - Mobile-first, optimisations automatiques
-- � **Validation automatique** - Markdown, YAML frontmatter, liens
+- 📱 **Responsive & Performance** - Mobile-first, optimisations automatiques
+- ✅ **Validation automatique** - Markdown, YAML frontmatter, liens
 - 📊 **Portfolio projets** - Showcase automatique depuis documentation
+
+### Phase 1: Data Collection & Anomaly Detection (NEW)
+- 🔍 **Time Series Generator** - Synthetic data with multiple anomaly types
+- 📈 **Monitoring Stack** - Kafka, Prometheus, Grafana, ELK
+- 🚨 **Anomaly Detection** - Spike, drift, level shift, missing values detection
+- 📊 **Visualization** - Grafana dashboards and Kibana exploration
+- 🔄 **Data Pipeline** - Complete ETL pipeline for time series metrics
 
 ## 🏗️ Architecture
 
 ```
 Automated-Portfolio/
 ├── .github/workflows/       # GitHub Actions (CI/CD)
-│   ├── deploy.yml          # Workflow principal (build + deploy)
-│   ├── obsidian-sync.yml   # Sync Obsidian → content/
-│   └── api-docs.yml        # Génération docs API
-├── content/                # Contenu Hugo (généré depuis docs-source)
-│   ├── projects/          # Portfolio projets
-│   ├── docs/              # Documentation technique
-│   ├── blog/              # Articles
-│   └── about/             # Pages statiques
-├── docs-source/           # Vault Obsidian (source de vérité)
-│   ├── Notes/            # Notes techniques
-│   ├── Guides/           # Guides et tutorials
-│   └── Projects/         # Documentation projets
-├── docs/                  # Documentation du projet
-│   ├── DEPLOYMENT.md     # Guide déploiement
-│   ├── DEVELOPMENT.md    # Guide développement
-│   └── TROUBLESHOOTING.md # Guide dépannage
-├── layouts/              # Templates Hugo personnalisés
-├── static/               # Assets (images, CSS, JS)
-├── scripts/              # Scripts d'automatisation
-└── config/               # Configuration Hugo
+├── content/                # Contenu Hugo (portfolio)
+├── infra/                  # Infrastructure (NEW - Phase 1)
+│   ├── dockerfiles/       # Docker images
+│   ├── prometheus/        # Prometheus config
+│   ├── grafana/           # Grafana dashboards
+│   ├── elk/               # ELK stack config
+│   └── kafka/             # Kafka config
+├── src/                    # Application code (NEW - Phase 1)
+│   ├── collector/         # Data generation & collection
+│   ├── ingestion/         # Kafka consumer & preprocessing
+│   ├── models/            # ML models (training & serving)
+│   └── tests/             # Unit tests
+├── notebooks/              # Jupyter notebooks (NEW - Phase 1)
+├── data/                   # Sample datasets (NEW - Phase 1)
+├── scripts/                # Automation scripts (Enhanced)
+│   ├── bootstrap.sh       # Environment setup
+│   ├── init.sh            # Infrastructure initialization
+│   ├── seed-data.sh       # Data generation
+│   └── kafka_playback.py  # Data replay tool
+├── docs/                   # Project documentation (Enhanced)
+│   └── phase1/            # Phase 1 documentation
+├── layouts/               # Templates Hugo personnalisés
+├── static/                # Assets (images, CSS, JS)
+├── docker-compose.yml     # Infrastructure orchestration (NEW)
+└── requirements.txt       # Python dependencies (NEW)
 ```
 
 ## 🚀 Déploiement

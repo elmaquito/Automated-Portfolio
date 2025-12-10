@@ -52,3 +52,40 @@ yarn.lock
 # Build artifacts
 dist/
 build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+ENV/
+
+# Data files (keep structure, ignore large datasets)
+data/*.csv
+data/*.parquet
+data/*.json
+!data/README.md
+
+# Logs
+logs/
+*.log
+
+# Docker volumes
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
